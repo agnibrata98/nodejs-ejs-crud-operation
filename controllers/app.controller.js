@@ -16,7 +16,7 @@ class AppController {
     async about(req, res) {
         try {
             // res.send('Hello World!');
-            const employees = await EmpModel.find().sort({ createdAt: -1 }); // descending order
+            const employees = await EmpModel.find().sort({ createdAt: -1 });
             console.log(employees);
             res.render('about-us',{
                 title: 'About Page',
@@ -94,7 +94,7 @@ class AppController {
             if (employee.fullName) {
                 const nameParts = employee.fullName.split(' ');
                 firstName = nameParts[0];
-                lastName = nameParts.slice(1).join(' '); // handles middle names too
+                lastName = nameParts.slice(1).join(' ');
             }
             res.render('editemployeedetails',{
                 title: 'Employee Details Page',
