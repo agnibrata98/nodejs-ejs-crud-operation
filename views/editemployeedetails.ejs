@@ -1,0 +1,43 @@
+<%- include('layouts/header') %>
+
+<h2 class="mb-4">Register Form</h2>
+<form action="/update-form" method="POST">
+  <div class="mb-3">
+    <label for="firstName" class="form-label">First Name</label>
+    <input type="text" class="form-control" name="firstName" value="<%=firstName%>" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="lastName" class="form-label">Last Name</label>
+    <input type="text" class="form-control" name="lastName" value="<%=lastName%>" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" class="form-control" name="email" value="<%=employee.email%>" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password" value="<%=employee.password%>" required>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="city" class="form-label">Select City</label>
+    <select class="form-select" name="city" required>
+      <option value="">-- Select a city --</option>
+      <option value="newyork" <%= employee.city === 'newyork' ? 'selected' : '' %>>New York</option>
+      <option value="losangeles" <%= employee.city === 'losangeles' ? 'selected' : '' %>>Los Angeles</option>
+      <option value="chicago" <%= employee.city === 'chicago' ? 'selected' : '' %>>Chicago</option>
+      <option value="houston" <%= employee.city === 'houston' ? 'selected' : '' %>>Houston</option>
+      <option value="miami" <%= employee.city === 'miami' ? 'selected' : '' %>>Miami</option>
+    </select>
+  </div>
+
+  <input type="hidden" name="id" value="<%=employee.id%>">
+
+  <button type="submit" class="btn btn-primary">Update Data</button>
+</form>
+
+<%- include('layouts/footer') %>

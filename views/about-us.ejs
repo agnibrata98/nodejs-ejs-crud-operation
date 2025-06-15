@@ -1,0 +1,28 @@
+<%-include ('layouts/header') %>
+
+    <h1>About Us</h1>
+    <h3>All Employees</h3>
+        <div class="row">
+          <% data.forEach((emp, index) => { %>
+            <div class="col-md-4 mb-4">
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <h5 class="card-title"><%= emp.fullName %></h5>
+                  <p class="card-text">
+                    <!-- <strong>Full Name:</strong> <%= emp.fullName %><br> -->
+                    <strong>Email:</strong> <%= emp.email %><br>
+                    <strong>City:</strong> <%= emp.city %>
+                  </p>
+                  <a href="/employee/<%= emp._id %>" class="btn btn-primary">View Details</a>
+                </div>
+              </div>
+            </div>
+      
+            <% if ((index + 1) % 3 === 0) { %>
+              </div><div class="row">
+            <% } %>
+          <% }) %>
+        </div>
+
+
+<%-include ('layouts/footer') %>

@@ -1,0 +1,36 @@
+<%- include('layouts/header') %>
+
+
+<div class="container mt-5">
+  <h2 class="mb-4">Employee Information</h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Full Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">City</th>
+          <th colspan="2" class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% employees.forEach(employee => { %>
+            <tr>
+            <td><%=employee.fullName%></td>
+            <td><%=employee.email%></td>
+            <td><%=employee.city%></td>
+            <td>
+                <a href="/edit-employee/<%=employee.id%>" class="btn btn-primary">Edit</a>
+            </td>
+            <td>
+                <a href="/delete-employee/<%=employee.id%>" class="btn btn-danger">Delete</a>
+            </td>
+            </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<%- include('layouts/footer') %>
