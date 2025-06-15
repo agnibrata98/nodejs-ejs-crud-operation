@@ -132,10 +132,14 @@ class AppController {
     async deleteData(req, res) {
         try {
             // res.send('Hello World!');
+            // soft delete
             const deleteData = await EmpModel.findByIdAndUpdate(req.params.id, {
                 isDeleted: true
             });
-            // console.log(deleteData);
+
+            // hard delete
+            // const deleteData = await EmpModel.findByIdAndDelete(req.params.id);
+            console.log(deleteData);
             res.redirect('/list');
         } catch (error) {
             throw error;
